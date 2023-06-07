@@ -117,7 +117,13 @@ models = {
 #                                      units=[1]))
 
 #USB Access
-probe.add_handler(probe.ModelRegister(Reg_u16(0xfc02), models, 
-	          methods=['rtu'],
-		  units=[1],
-		  rates=[19200]))
+#probe.add_handler(probe.ModelRegister(Reg_u16(0xfc02), models, 
+#	          methods=['rtu'],
+#		  units=[1],
+#		  rates=[19200]))
+
+# PAN TCP and USB Access
+probe.add_handler(probe.ModelRegister(Reg_u16(0xfc02), models,
+                                      methods=['rtu', 'tcp'], 
+                                      rates=[9600],   
+                                      units=[1]))
